@@ -69,3 +69,4 @@ theme: landscape
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: heroku
+  repo: https://git.heroku.com/hownz.git
