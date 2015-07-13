@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: How.nz
-subtitle:
-description:
+title: How.nz Tech Blog
+subtitle: Web Development and Programming
+description: Web Development Tech Blog
 author: Lee Penkman
 language: en
 timezone: Pacific/Auckland
