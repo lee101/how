@@ -66,15 +66,77 @@ One strategy for trying all possibilities is to imagine:
 This recursive algorithm would run generate a recursive call tree with `len(wood_lengths)` branches at each step and `len(required_lengths)` deep
  so it would take atleast $O( len(wood\\_lengths) ^ {len(required\\_lengths)} )$ time.
  
-There are some conditions where you could prune this recursive call tree: 
-you can't take a cut of size N from a wood_length less than N.
-you don't need to consider cutting a length from a duplicate size
-only consider non duplicate wood lengths (If you have planks A and B both of size N then you could take a cut from either, it would be equivalent)
+There are some conditions allowing you to prune this recursive call tree: 
+- You can't take a cut of size N from a wood_length less than N.
+- Only consider non duplicate wood lengths (If you have planks A and B both of size N then you could take a cut from either, it would be equivalent)
+
+
+    class RetainingWallSolver(object):
+        def retaining_wall(self, wood_lengths, required_lengths):
+            self.required_lengths = required_lengths
+            return self.retaining_wall_recursive(wood_lengths, len(required_lengths) - 1)
+    
+        def retaining_wall_recursive(self, wood_lengths, required_length_idx):
+            if required_length_idx <= -1:
+                return {
+                    'cuts': []
+                }
+    
+            current_required_length = self.required_lengths[required_length_idx]
+    
+            possible_subsolutions = []
+    
+            # only consider non duplicate wood lengths
+            seen_wood_lengths = set()
+            for wood_length_idx in range(len(wood_lengths) - 1, -1, -1):
+                if wood_lengths[wood_length_idx] in seen_wood_lengths:
+                    continue
+                seen_wood_lengths.add(wood_lengths[wood_length_idx])
+    
+                if wood_lengths[wood_length_idx] < current_required_length:
+                    # cant cut from this length
+                    continue
+    
+                # what if we chose to cut current_required_length out of this wood length
+    
+                new_wood_lengths = list(wood_lengths)
+    
+                new_wood_lengths[wood_length_idx] -= current_required_length
+    
+                subsolution = self.retaining_wall_recursive(new_wood_lengths, required_length_idx - 1)
+    
+                if not subsolution:
+                    continue
+    
+                # don't need to cut if the wood length and required length are the same
+                if new_wood_lengths[wood_length_idx] != 0:
+                    subsolution['cuts'].append({
+                        'wood_num': wood_length_idx,
+                        'cut_amount': current_required_length
+                    })
+    
+                possible_subsolutions.append(subsolution)
+    
+            if len(possible_subsolutions) == 0:
+                return False
+    
+            # return the solution with the least number of cuts
+            return min(possible_subsolutions, key=lambda s: len(s['cuts']))
+
+Example tests https://github.com/lee101/retaining-wall/blob/master/retaining_wall_test.py
+
+#### Whats wrong with this solution?
+
+Overlapping subsolutions:
 
 
 
+Another problem: To maintain state about what `wood_lengths` we have we created a full copy `new_wood_lengths = list(wood_lengths)` 
+and we store it in the stack!
 
-$a = b + c$
+That means that for each function call we have $O(len(wood\\_lengths))$ time to do the copy.
+when we are $N$ levels deep in the stack we will be storing $N*len(wood\\_lengths)$ memory
+
 {% math_block %}
 \begin{aligned}
 \dot{x} & = \sigma(y-x) \\
