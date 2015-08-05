@@ -99,21 +99,22 @@ There are some conditions allowing you to prune this recursive call tree:
     
                 # what if we chose to cut current_required_length out of this wood length
     
-                new_wood_lengths = list(wood_lengths)
+                wood_lengths[wood_length_idx] -= current_required_length
     
-                new_wood_lengths[wood_length_idx] -= current_required_length
-    
-                subsolution = self.retaining_wall_recursive(new_wood_lengths, required_length_idx - 1)
+                subsolution = self.retaining_wall_recursive(wood_lengths, required_length_idx - 1)
     
                 if not subsolution:
                     continue
     
                 # don't need to cut if the wood length and required length are the same
-                if new_wood_lengths[wood_length_idx] != 0:
+                if wood_lengths[wood_length_idx] != 0:
                     subsolution['cuts'].append({
                         'wood_num': wood_length_idx,
                         'cut_amount': current_required_length
                     })
+    
+                #roll back the state of wood_lengths
+                wood_lengths[wood_length_idx] += current_required_length
     
                 possible_subsolutions.append(subsolution)
     
@@ -123,27 +124,37 @@ There are some conditions allowing you to prune this recursive call tree:
             # return the solution with the least number of cuts
             return min(possible_subsolutions, key=lambda s: len(s['cuts']))
 
+
 Example tests https://github.com/lee101/retaining-wall/blob/master/retaining_wall_test.py
 
 #### Whats wrong with this solution?
 
 Overlapping subsolutions:
 
+consider the call tree when we pass the following parameters
 
 
-Another problem: To maintain state about what `wood_lengths` we have we created a full copy `new_wood_lengths = list(wood_lengths)` 
-and we store it in the stack!
+    wood_lengths=[6, 8, 8] required_lengths=[2, 2, 2]
+    |--wood_lengths=[4, 8, 8] required_lengths=[2, 2]
+    |  |---wood_lengths=[2, 8, 8] required_lengths=[2]
+    |  └---wood_lengths=[4, 6, 8] required_lengths=[2]
+    └--wood_lengths=[6, 6, 8] required_lengths=[2, 2]
+       |---wood_lengths=[4, 6, 8] required_lengths=[2]
+       ...
 
-That means that for each function call we have $O(len(wood\\_lengths))$ time to do the copy.
-when we are $N$ levels deep in the stack we will be storing $N*len(wood\\_lengths)$ memory
+Notice how `wood_lengths=[4, 6, 8] required_lengths=[2]` is computed twice, 
+when inputs get large this can mean the algorithm spends a massive amount of time solving problems that it has already solved.
 
-{% math_block %}
-\begin{aligned}
-\dot{x} & = \sigma(y-x) \\
-\dot{y} & = \rho x - y - xz \\
-\dot{z} & = -\beta z + xy
-\end{aligned}
-{% endmath_block %}
+If the set of lengths in `wood_lengths` is the same and `required_length_idx` is the same then `retaining_wall_recursive` should return the same thing.
+
+
+
+
+
+
+
+
+
 
 Secondly we want to minimize waste (we want nice long offcuts we can use for other things).
 
