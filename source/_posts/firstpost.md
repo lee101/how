@@ -220,3 +220,4 @@ As a heuristic we know we will only be able to use a leftover plank if its at le
 
 This means we can define waste as the amount of times you can cut the smallest `required_length` out of your remaining planks (actually that's how much reuse you get waste is the inverse)
 
+{% math_block %}{% endmath_block %}
