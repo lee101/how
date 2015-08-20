@@ -203,6 +203,8 @@ We can then use the decorator as follows:
 
 This runs a lot faster, but does use more memory, could we be better about our memory usage by smartly evicting keys?
 
+TODO: finish dynamic programming example
+
 
 Extra follow on problems:
 
