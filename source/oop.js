@@ -2,7 +2,7 @@ var someNamespace = (function () {
     "use strict";
     var self = {};
 
-    self.animal = function (animalType, name) {
+    self.Animal = function (animalType, name) {
         var animalSelf = {};
 
         // public constructor
@@ -18,6 +18,7 @@ var someNamespace = (function () {
         function getTalkingPrefix() {
             return type + ', ' + animalSelf.name + ': ';
         }
+
         //public var
         animalSelf.name = 'lee';
         //public function/method
@@ -31,8 +32,8 @@ var someNamespace = (function () {
         return animalSelf.construct(animalType, name);
     };
 
-    self.duck = function (name) {
-        var duckSelf = self.animal('duck', name);
+    self.Duck = function (name) {
+        var duckSelf = self.Animal('Duck', name);
 
         duckSelf.talk = function (words) {
             //optional argument
@@ -48,15 +49,15 @@ var someNamespace = (function () {
     return self;
 })();
 
-var peppaPig = someNamespace.animal('pig', 'peppa');
-peppaPig.talk('Hi');
+var peppaPig = someNamespace.Animal('pig', 'peppa');
+peppaPig.talk('Hi'); // "pig, peppa: Hi"
 
-var daffyDuck = someNamespace.duck('daffy');
-daffyDuck.name;
-daffyDuck.talk();
+var daffyDuck = someNamespace.Duck('daffy');
+daffyDuck.name; // "daffy"
+daffyDuck.talk(); // "duck says: quack quack"
 var talkingFunctions = [peppaPig.talk, daffyDuck.talk];
-talkingFunctions[0]();
-talkingFunctions[1]();
+talkingFunctions[0]('Hi'); // "pig, peppa: Hi" // still works! yay!
+talkingFunctions[1](); // "duck says: quack quack"
 
 
 //problems with this and new

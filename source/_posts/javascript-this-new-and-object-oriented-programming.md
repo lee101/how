@@ -58,7 +58,7 @@ example OOP style:
         "use strict";
         var self = {};
     
-        self.animal = function (animalType, name) {
+        self.Animal = function (animalType, name) {
             var animalSelf = {};
     
             // public constructor
@@ -74,6 +74,7 @@ example OOP style:
             function getTalkingPrefix() {
                 return type + ', ' + animalSelf.name + ': ';
             }
+    
             //public var
             animalSelf.name = 'lee';
             //public function/method
@@ -87,8 +88,8 @@ example OOP style:
             return animalSelf.construct(animalType, name);
         };
     
-        self.duck = function (name) {
-            var duckSelf = self.animal('duck', name);
+        self.Duck = function (name) {
+            var duckSelf = self.Animal('Duck', name);
     
             duckSelf.talk = function (words) {
                 //optional argument
@@ -104,15 +105,16 @@ example OOP style:
         return self;
     })();
     
-    var peppaPig = someNamespace.animal('pig', 'peppa');
+    var peppaPig = someNamespace.Animal('pig', 'peppa');
     peppaPig.talk('Hi'); // "pig, peppa: Hi"
     
-    var daffyDuck = someNamespace.duck('daffy');
-    daffyDuck.name;
+    var daffyDuck = someNamespace.Duck('daffy');
+    daffyDuck.name; // "daffy"
     daffyDuck.talk(); // "duck says: quack quack"
     var talkingFunctions = [peppaPig.talk, daffyDuck.talk];
     talkingFunctions[0]('Hi'); // "pig, peppa: Hi" // still works! yay!
     talkingFunctions[1](); // "duck says: quack quack"
+
     
 ###pros
 
@@ -135,6 +137,8 @@ Interoperable with other frameworks e.g. Backbone
         self.parse = function (response) {
             ...
 
+private classes are easy too e.g. `var Duck` instead of `self.Duck`
+
 ###cons
 
 This doesn't support protected variables (ones that only subclasses can access).
@@ -150,6 +154,10 @@ but overriding a `function(y, x)` with a `function(x, y)` would lead to bugs.
 in general extension/inheritance is a complicated pattern, 
 to use an object you need to understand its type hierarchy and all the ways that can affect its behaviour [https://vimeo.com/69255635](https://vimeo.com/69255635)
 Its best to favour typical object composition with simple functions with inputs and outputs.
-This is because it has less state (you might inherit things you don't want).
+This is because it has less state (you might inherit things you don't want). 
+Using this contrived example, why does a duck have a name or use words if all it does is quack? why is it an animal? a quacking function probably suffices.
+
 It is also easier to unit test because using mocks for some objects in the class hierarchy can be difficult 
 (you may want to use mock objects to test some code interacts with other parts correctly without having to test those parts too).
+
+Generally using inheritance is good when you know that the subclass really is a subtle variation of the parent class and they will normally want to share behaviour
