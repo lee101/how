@@ -11,38 +11,44 @@ tags:
 
 Whats wrong with `this` and `new`?
 
-    //problems with this and new
+```javascript
+//problems with this and new
+
+var thing = (function () {
+    this.a = 'hi'; // works
+})();
+
+var thing = (function () {
+    "use strict";
+    this.a = 'hi'; // breaks because we didn't use "new" so we don't have a "this"
+})();
+
+var thing = new (function () {
+    "use strict";
+    this.a = 'hi'; // works because we have a "this" because we used "new"
+})();
     
-    var thing = (function () {
-        this.a = 'hi'; // works
-    })();
-    
-    var thing = (function () {
-        "use strict";
-        this.a = 'hi'; // breaks because we didn't use "new" so we don't have a "this"
-    })();
-    
-    var thing = new (function () {
-        "use strict";
-        this.a = 'hi'; // works because we have a "this" because we used "new"
-    })();
-    
+```
+
 So if you use `this` trying to strict'nd up your code is error prone, 
 once you have strict'nd up your code you'll have to remember to use `new` when constructing things that use `this`.
     
-    // problems with this
-    
-    var thing = {
-        word: 'hi',
-        talk: function() {
-            return this.word;
-        }
-    };
-    
-    thing.talk() // hi
-    var thingTalkFunc = thing.talk;
-    thingTalkFunc(); // cannot read property word of undefined (this is set to window)
-    thingTalkFunc.call(thing); // technically works
+```javascript
+// problems with this
+
+var thing = {
+    word: 'hi',
+    talk: function() {
+        return this.word;
+    }
+};
+
+thing.talk() // hi
+var thingTalkFunc = thing.talk;
+thingTalkFunc(); // cannot read property word of undefined (this is set to window)
+thingTalkFunc.call(thing); // technically works
+
+```
 
 The problem is that `this` means "whatever object your function is attached to when its called"
 people don't usually expect that and it leads to huge amounts of bugs. 
@@ -53,68 +59,70 @@ I also see people doing all sorts of things to get around `this`, like iterating
 ##Proposed Solution: avoid `this` and avoid `new`
 
 example OOP style:
+```javascript
 
-    var someNamespace = (function () {
-        "use strict";
-        var self = {};
-    
-        self.Animal = function (animalType, name) {
-            var animalSelf = {};
-    
-            // public constructor
-            animalSelf.construct = function (animalType, name) {
-                type = animalType;
-                animalSelf.name = name;
-                return animalSelf;
-            };
-    
-            // private var
-            var type = 'human';
-            // private function
-            function getTalkingPrefix() {
-                return type + ', ' + animalSelf.name + ': ';
+var someNamespace = (function () {
+    "use strict";
+    var self = {};
+
+    self.Animal = function (animalType, name) {
+        var animalSelf = {};
+
+        // public constructor
+        animalSelf.construct = function (animalType, name) {
+            type = animalType;
+            animalSelf.name = name;
+            return animalSelf;
+        };
+
+        // private var
+        var type = 'human';
+        // private function
+        function getTalkingPrefix() {
+            return type + ', ' + animalSelf.name + ': ';
+        }
+
+        //public var
+        animalSelf.name = 'lee';
+        //public function/method
+        animalSelf.talk = function (words) {
+            return getTalkingPrefix() + words;
+        };
+
+
+        // constructor is called at the end so when its called
+        // animalSelf has all the variables and functions attached
+        return animalSelf.construct(animalType, name);
+    };
+
+    self.Duck = function (name) {
+        var duckSelf = self.Animal('Duck', name);
+
+        duckSelf.talk = function (words) {
+            //optional argument
+            if (typeof words == "undefined") {
+                words = 'quack quack';
             }
-    
-            //public var
-            animalSelf.name = 'lee';
-            //public function/method
-            animalSelf.talk = function (words) {
-                return getTalkingPrefix() + words;
-            };
-    
-    
-            // constructor is called at the end so when its called
-            // animalSelf has all the variables and functions attached
-            return animalSelf.construct(animalType, name);
+            return 'duck says: ' + words
         };
-    
-        self.Duck = function (name) {
-            var duckSelf = self.Animal('Duck', name);
-    
-            duckSelf.talk = function (words) {
-                //optional argument
-                if (typeof words == "undefined") {
-                    words = 'quack quack';
-                }
-                return 'duck says: ' + words
-            };
-    
-            return duckSelf;
-        };
-    
-        return self;
-    })();
-    
-    var peppaPig = someNamespace.Animal('pig', 'peppa');
-    peppaPig.talk('Hi'); // "pig, peppa: Hi"
-    
-    var daffyDuck = someNamespace.Duck('daffy');
-    daffyDuck.name; // "daffy"
-    daffyDuck.talk(); // "duck says: quack quack"
-    var talkingFunctions = [peppaPig.talk, daffyDuck.talk];
-    talkingFunctions[0]('Hi'); // "pig, peppa: Hi" // still works! yay!
-    talkingFunctions[1](); // "duck says: quack quack"
 
+        return duckSelf;
+    };
+
+    return self;
+})();
+
+var peppaPig = someNamespace.Animal('pig', 'peppa');
+peppaPig.talk('Hi'); // "pig, peppa: Hi"
+
+var daffyDuck = someNamespace.Duck('daffy');
+daffyDuck.name; // "daffy"
+daffyDuck.talk(); // "duck says: quack quack"
+var talkingFunctions = [peppaPig.talk, daffyDuck.talk];
+talkingFunctions[0]('Hi'); // "pig, peppa: Hi" // still works! yay!
+talkingFunctions[1](); // "duck says: quack quack"
+
+```
     
 ###pros
 
@@ -125,17 +133,19 @@ Beginners don't need to understand the complexities of `this`.
 Don't need any kind of framework to do it.
 
 Interoperable with other frameworks e.g. instead of using `Backbone.Collection.extend({ ... })`
+```javascript
 
-    BroadbandMap.Collections.Networks = function () {
-    
-        var self = new Backbone.Collection();
-    
-        self.model = BroadbandMap.Models.Network;
-    
-        self.url = '/api/1.0/networks';
-    
-        self.parse = function (response) {
-            ...
+BroadbandMap.Collections.Networks = function () {
+
+    var self = new Backbone.Collection();
+
+    self.model = BroadbandMap.Models.Network;
+
+    self.url = '/api/1.0/networks';
+
+    self.parse = function (response) {
+        ...
+```
 
 private classes are easy too e.g. `var Duck` instead of `self.Duck`
 
