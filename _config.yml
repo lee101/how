@@ -17,6 +17,8 @@ root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
+
+
 # Directory
 source_dir: source
 public_dir: public
@@ -63,7 +65,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: landscape
+theme: tranquilpeak-hexo-theme
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html

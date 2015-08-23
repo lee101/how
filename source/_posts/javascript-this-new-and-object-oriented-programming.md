@@ -1,5 +1,5 @@
 title: JavaScript, this, new and Object Oriented Programming
-date: 2015-06-24 08:59:32
+date: 2015-07-24 08:59:32
 tags: 
 - JavaScript
 - Object Oriented Programming
@@ -46,7 +46,7 @@ once you have strict'nd up your code you'll have to remember to use `new` when c
 
 The problem is that `this` means "whatever object your function is attached to when its called"
 people don't usually expect that and it leads to huge amounts of bugs. 
-I see people many popular frameworks like Backbone enforcing patterns requiring `this`.
+I see people many popular frameworks like Backbone, Angular and Ember suggesting patterns requiring `this`.
 I also see people doing all sorts of things to get around `this`, like iterating over an objects functions and binding them all to it creating a lot of boilerplate (coffee script).
  
  
@@ -124,7 +124,7 @@ Beginners don't need to understand the complexities of `this`.
 
 Don't need any kind of framework to do it.
 
-Interoperable with other frameworks e.g. Backbone
+Interoperable with other frameworks e.g. instead of using `Backbone.Collection.extend({ ... })`
 
     BroadbandMap.Collections.Networks = function () {
     
@@ -146,10 +146,11 @@ This doesn't support protected variables (ones that only subclasses can access).
 You could have package private (vars in the outer scope) and public things by adding to `self`.
  but adding package private vars and funcs in this outer scope could make it difficult to break out this file into smaller files.
  
- 
 You can override a method with one of a different signature, you probably shouldn't do that, 
 in this case words is now an option argument to duck.talk which is probably fine, 
 but overriding a `function(y, x)` with a `function(x, y)` would lead to bugs.
+
+The style may look unusual to people as most frameworks suggest using `this` ES6 classes use `this`
 
 in general extension/inheritance is a complicated pattern, 
 to use an object you need to understand its type hierarchy and all the ways that can affect its behaviour [https://vimeo.com/69255635](https://vimeo.com/69255635)
@@ -160,4 +161,7 @@ Using this contrived example, why does a duck have a name or use words if all it
 It is also easier to unit test because using mocks for some objects in the class hierarchy can be difficult 
 (you may want to use mock objects to test some code interacts with other parts correctly without having to test those parts too).
 
-Generally using inheritance is good when you know that the subclass really is a subtle variation of the parent class and they will normally want to share behaviour
+Generally using inheritance is good when you know that the subclass really is a subtle variation of the "default behaviour" in the parent class and they will normally want to share lots of behaviour, 
+don't feel bad if you don't use inheritance and still treat objects interchangeably based on them having the same properties/methods (duck typing).
+
+Let me know what you think! Could it be improved? Are there any pros and cons that i have missed?
