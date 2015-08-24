@@ -160,7 +160,33 @@ You can override a method with one of a different signature, you probably should
 in this case words is now an option argument to duck.talk which is probably fine, 
 but overriding a `function(y, x)` with a `function(x, y)` would lead to bugs.
 
-The style may look unusual to people as most frameworks suggest using `this` ES6 classes use `this`
+The style may look unusual to people as most frameworks suggest using `this` 
+
+####ES6 
+
+classes use `this` so we will still see lots of bugs related to its complexity.
+Luckily for us even more complexity is added around `this` because the new arrow functions will be forever bound to the `this` from the calling context [es6 arrow functions and this](http://codepen.io/somethingkindawierd/blog/es6-arrow-functions-this)
+This behaviour is simpler in that `this` isn't going to change on you but using the `this` from the calling context may confuse some people:
+
+```javascript
+var thing = {
+    word: 'hi',
+    talk: () => {
+        return this.word;
+    }
+};
+thing.talk() // undefined because this == window when the arrow function was created and window.word is undefined
+```
+
+At-least we won't have so many libraries implementing inheritance differently and we will have a boilerplate-less constructor which has access to the methods when called.
+
+One small benefit in ES6 is type checking that new must be used with a constructor.
+```javascript
+class C {
+    m() {}
+}
+new C.prototype.m(); // TypeError: m() {} is not a constructor
+```
 
 in general extension/inheritance is a complicated pattern, 
 to use an object you need to understand its type hierarchy and all the ways that can affect its behaviour [https://vimeo.com/69255635](https://vimeo.com/69255635)
