@@ -16,7 +16,7 @@ so we had another list of lengths `required_lengths`.
 
 We want to use as few cuts as possible because we are lazy programmers.
 
-Task: write an algorithm to find the list of cuts you should make.
+<b>Task</b>: write an algorithm to find the list of cuts you should make.
 
 A cut can be described as:
  
@@ -71,58 +71,60 @@ There are some conditions allowing you to prune this recursive call tree:
 - Only consider non duplicate wood lengths (If you have planks A and B both of size N then you could take a cut from either, it would be equivalent)
 
 
-    class RetainingWallSolver(object):
-        def retaining_wall(self, wood_lengths, required_lengths):
-            self.required_lengths = required_lengths
-            return self.retaining_wall_recursive(wood_lengths, len(required_lengths) - 1)
-    
-        def retaining_wall_recursive(self, wood_lengths, required_length_idx):
-            if required_length_idx <= -1:
-                return {
-                    'cuts': []
-                }
-    
-            current_required_length = self.required_lengths[required_length_idx]
-    
-            possible_subsolutions = []
-    
-            # only consider non duplicate wood lengths
-            seen_wood_lengths = set()
-            for wood_length_idx in range(len(wood_lengths) - 1, -1, -1):
-                if wood_lengths[wood_length_idx] in seen_wood_lengths:
-                    continue
-                seen_wood_lengths.add(wood_lengths[wood_length_idx])
-    
-                if wood_lengths[wood_length_idx] < current_required_length:
-                    # cant cut from this length
-                    continue
-    
-                # what if we chose to cut current_required_length out of this wood length
-    
-                wood_lengths[wood_length_idx] -= current_required_length
-    
-                subsolution = self.retaining_wall_recursive(wood_lengths, required_length_idx - 1)
-    
-                if not subsolution:
-                    continue
-    
-                # don't need to cut if the wood length and required length are the same
-                if wood_lengths[wood_length_idx] != 0:
-                    subsolution['cuts'].append({
-                        'wood_num': wood_length_idx,
-                        'cut_amount': current_required_length
-                    })
-    
-                #roll back the state of wood_lengths
-                wood_lengths[wood_length_idx] += current_required_length
-    
-                possible_subsolutions.append(subsolution)
-    
-            if len(possible_subsolutions) == 0:
-                return False
-    
-            # return the solution with the least number of cuts
-            return min(possible_subsolutions, key=lambda s: len(s['cuts']))
+```python
+class RetainingWallSolver(object):
+    def retaining_wall(self, wood_lengths, required_lengths):
+        self.required_lengths = required_lengths
+        return self.retaining_wall_recursive(wood_lengths, len(required_lengths) - 1)
+
+    def retaining_wall_recursive(self, wood_lengths, required_length_idx):
+        if required_length_idx <= -1:
+            return {
+                'cuts': []
+            }
+
+        current_required_length = self.required_lengths[required_length_idx]
+
+        possible_subsolutions = []
+
+        # only consider non duplicate wood lengths
+        seen_wood_lengths = set()
+        for wood_length_idx in range(len(wood_lengths) - 1, -1, -1):
+            if wood_lengths[wood_length_idx] in seen_wood_lengths:
+                continue
+            seen_wood_lengths.add(wood_lengths[wood_length_idx])
+
+            if wood_lengths[wood_length_idx] < current_required_length:
+                # cant cut from this length
+                continue
+
+            # what if we chose to cut current_required_length out of this wood length
+
+            wood_lengths[wood_length_idx] -= current_required_length
+
+            subsolution = self.retaining_wall_recursive(wood_lengths, required_length_idx - 1)
+
+            if not subsolution:
+                continue
+
+            # don't need to cut if the wood length and required length are the same
+            if wood_lengths[wood_length_idx] != 0:
+                subsolution['cuts'].append({
+                    'wood_num': wood_length_idx,
+                    'cut_amount': current_required_length
+                })
+
+            #roll back the state of wood_lengths
+            wood_lengths[wood_length_idx] += current_required_length
+
+            possible_subsolutions.append(subsolution)
+
+        if len(possible_subsolutions) == 0:
+            return False
+
+        # return the solution with the least number of cuts
+        return min(possible_subsolutions, key=lambda s: len(s['cuts']))
+```
 
 
 Example tests https://github.com/lee101/retaining-wall/blob/master/retaining_wall_test.py
@@ -133,14 +135,15 @@ Overlapping subsolutions:
 
 consider the call tree when we pass the following parameters
 
-
-    wood_lengths=[6, 8, 8] required_lengths=[2, 2, 2]
-    |--wood_lengths=[4, 8, 8] required_lengths=[2, 2]
-    |  |---wood_lengths=[2, 8, 8] required_lengths=[2]
-    |  └---wood_lengths=[4, 6, 8] required_lengths=[2] <---
-    └--wood_lengths=[6, 6, 8] required_lengths=[2, 2]
-       |---wood_lengths=[4, 6, 8] required_lengths=[2] <---
-       ...
+```
+wood_lengths=[6, 8, 8] required_lengths=[2, 2, 2]
+|--wood_lengths=[4, 8, 8] required_lengths=[2, 2]
+|  |---wood_lengths=[2, 8, 8] required_lengths=[2]
+|  └---wood_lengths=[4, 6, 8] required_lengths=[2] <---
+└--wood_lengths=[6, 6, 8] required_lengths=[2, 2]
+   |---wood_lengths=[4, 6, 8] required_lengths=[2] <---
+   ...
+```
 
 Notice how `wood_lengths=[4, 6, 8] required_lengths=[2]` is computed twice, 
 when inputs get large this can mean the algorithm spends a massive amount of time solving problems that it has already solved.
@@ -151,55 +154,57 @@ One way to improve a recursive algorithm to not compute the same thing twice is 
 We could store a hashtable (a dict) mapping the given arguments to the output of the function.
 
 One way to implement this in python is with decorators, its quite nice because our caching logic is in one place.
-    
-    
-    import copy
-    import functools
-    
-    
-    class unordered_memoized(object):
-        '''Decorator. Caches a function's return value each time it is called.
-        If called later with the same arguments, the cached value is returned
-        (not reevaluated).
-        list arguments are hashed irrespective of the order of items.
-        a deepcopy is cached to avoid changing contents of the cache by operating on a functions return value.
-        '''
-    
-        def __init__(self, func):
-            self.func = func
-            self.cache = {}
-    
-        def __call__(self, *args):
-            cache_key = []
-            for arg in args:
-                if isinstance(arg, list):
-                    cache_key.append(tuple(sorted(arg)))
-                else:
-                    cache_key.append(arg)
-            cache_key = tuple(cache_key)
-    
-            if cache_key in self.cache:
-                return self.cache[cache_key]
+
+
+```python
+import copy
+import functools
+
+
+class unordered_memoized(object):
+    '''Decorator. Caches a function's return value each time it is called.
+    If called later with the same arguments, the cached value is returned
+    (not reevaluated).
+    list arguments are hashed irrespective of the order of items.
+    a deepcopy is cached to avoid changing contents of the cache by operating on a functions return value.
+    '''
+
+    def __init__(self, func):
+        self.func = func
+        self.cache = {}
+
+    def __call__(self, *args):
+        cache_key = []
+        for arg in args:
+            if isinstance(arg, list):
+                cache_key.append(tuple(sorted(arg)))
             else:
-                value = self.func(*args)
-                self.cache[cache_key] = copy.deepcopy(value)
-                return value
-    
-        def __repr__(self):
-            '''Return the function's docstring.'''
-            return self.func.__doc__
-    
-        def __get__(self, obj, objtype):
-            '''Support instance methods.'''
-            return functools.partial(self.__call__, obj)
+                cache_key.append(arg)
+        cache_key = tuple(cache_key)
+
+        if cache_key in self.cache:
+            return self.cache[cache_key]
+        else:
+            value = self.func(*args)
+            self.cache[cache_key] = copy.deepcopy(value)
+            return value
+
+    def __repr__(self):
+        '''Return the function's docstring.'''
+        return self.func.__doc__
+
+    def __get__(self, obj, objtype):
+        '''Support instance methods.'''
+        return functools.partial(self.__call__, obj)
+```
 
 We can then use the decorator as follows:
 
-
+```python
     @unordered_memoized
     def retaining_wall_recursive(self, wood_lengths, required_length_idx):
         ...
-
+```
 
 This runs a lot faster, but does use more memory, could we be better about our memory usage by smartly evicting keys?
 
