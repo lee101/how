@@ -151,7 +151,7 @@ private classes are easy too e.g. `var Duck` instead of `self.Duck`
 
 ###cons
 
-This doesn't support protected variables (ones that only subclasses can access).
+This doesn't support protected variables (ones that only subclasses can access) (arguably a plus).
 
 You could have package private (vars in the outer scope) and public things by adding to `self`.
  but adding package private vars and funcs in this outer scope could make it difficult to break out this file into smaller files.
@@ -165,7 +165,7 @@ The style may look unusual to people as most frameworks suggest using `this`
 ####ES6 
 
 classes use `this` so we will still see lots of bugs related to its complexity.
-Luckily for us even more complexity is added around `this` because the new arrow functions will be forever bound to the `this` from the calling context [es6 arrow functions and this](http://codepen.io/somethingkindawierd/blog/es6-arrow-functions-this)
+Luckily for us even more complexity is added around `this` because the new arrow functions will be forever bound to the `this` from the calling context.
 This behaviour is simpler in that `this` isn't going to change on you but using the `this` from the calling context may confuse some people:
 
 ```javascript
@@ -188,16 +188,25 @@ class C {
 new C.prototype.m(); // TypeError: m() {} is not a constructor
 ```
 
+[shimming ES6 to bind methods so that they hold onto this](http://www.2ality.com/2013/06/auto-binding.html)
+[es6 arrow functions and this](http://codepen.io/somethingkindawierd/blog/es6-arrow-functions-this)
+
+### conclusion
+
 in general extension/inheritance is a complicated pattern, 
-to use an object you need to understand its type hierarchy and all the ways that can affect its behaviour [https://vimeo.com/69255635](https://vimeo.com/69255635)
-Its best to favour typical object composition with simple functions with inputs and outputs.
+to use an object you need to understand its type hierarchy and all the ways that can affect its behaviour
+Its best to favour typical object composition with simple functions with inputs and outputs rather than [closure's](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) and global state.
 This is because it has less state (you might inherit things you don't want). 
 Using this contrived example, why does a duck have a name or use words if all it does is quack? why is it an animal? a quacking function probably suffices.
+
+["classical inheritance is obsolete talk"](https://vimeo.com/69255635)
 
 It is also easier to unit test because using mocks for some objects in the class hierarchy can be difficult 
 (you may want to use mock objects to test some code interacts with other parts correctly without having to test those parts too).
 
 Generally using inheritance is good when you know that the subclass really is a subtle variation of the "default behaviour" in the parent class and they will normally want to share lots of behaviour, 
 don't feel bad if you don't use inheritance and still treat objects interchangeably based on them having the same properties/methods (duck typing).
+
+Beware the complexities of this!
 
 Let me know what you think! Could it be improved? Are there any pros and cons that i have missed?
