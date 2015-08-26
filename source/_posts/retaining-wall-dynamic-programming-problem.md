@@ -5,6 +5,8 @@ tags:
 - Dynamic Programming
 - Algorithms
 - Recursion
+photos:
+- planks.jpg
 ---
 
 When we moved into our first house we inherited a half finished retaining wall.
