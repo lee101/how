@@ -215,18 +215,21 @@ TODO: finish dynamic programming example
 
 Extra follow on problems:
 
-#### Minimise waste
+#### Maximise reuse/Minimise waste
 
 What if there where multiple solutions with the fewest cuts, then how should we decide the best?
 
 That is first and foremost we want to make the fewest cuts
 
-Secondly we want to minimize waste (we want nice long offcuts we can use for other things).
+Secondly we want to maximize reuse (we want nice long offcuts we can use for other things).
 
-How should we define waste?
+How should we define reuse?
 Well we know we want to build another retaining wall which will have similar distances between posts (and thus similar `required_lengths`)
 As a heuristic we know we will only be able to use a leftover plank if its at least the smallest length in `required_lengths`
 
-This means we can define waste as the amount of times you can cut the smallest `required_length` out of your remaining planks (actually that's how much reuse you get waste is the inverse)
+This means we can define reuse as the amount of times you can cut the smallest `required_length` out of your remaining planks.
+
+Waste is how much reuse a solution doesn't get (The total length of all the offcuts that can't be reused).
+Another way of wording this is that we want to minimize waste.
 
 {% math_block %}{% endmath_block %}
