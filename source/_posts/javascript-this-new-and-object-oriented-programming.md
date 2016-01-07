@@ -30,8 +30,8 @@ var thing = new (function () {
     
 ```
 
-So if you use `this` trying to strict'nd up your code is error prone, 
-once you have strict'nd up your code you'll have to remember to use `new` when constructing things that use `this`.
+So if you use `this` trying to stricten up your code is error prone,
+once you stricten up your code you'll have to remember to use `new` when constructing things that use `this`.
     
 ```javascript
 // problems with this
@@ -126,11 +126,11 @@ talkingFunctions[1](); // "duck says: quack quack"
     
 ###pros
 
-dons'nt have problems with `this` being lost and doesn't need any boilerplate to bind `this`, doesn't need `new`
+No problems with `this` being lost and no boilerplate to bind `this`, doesn't need `new`
 
 Beginners don't need to understand the complexities of `this`.
 
-Don't need any kind of framework to do it.
+No framework required.
 
 Interoperable with other frameworks e.g. instead of using `Backbone.Collection.extend({ ... })`
 ```javascript
