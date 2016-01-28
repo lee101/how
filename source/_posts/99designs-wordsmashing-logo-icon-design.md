@@ -5,6 +5,8 @@ tags:
 - Crowd Sourcing
 - WordSmashing
 - Game Development
+photos:
+- wordsmashing-icon187.png
 ---
 At [99designs](https://99designs.com) employees get to run a free design contest.
 
@@ -20,18 +22,19 @@ My old DIY design.. D:
 
 Running design contests can be a great way to generate lots of design ideas to choose from.
 
-The normal process is 4 days of reviewing designs, then you have time to pick a few designers to go through to the final round of refining designs for 3 days.
+The normal process is 4 days of reviewing designs, then you have time to pick at most 3 designers to refine their designs for 3 days.
 
 You have the option to run the contest "blind" meaning designers can't see each others submissions which helps to ensure a lot of variation.
 
-I didnn't run a blind contest and did notice a lot of designs sharing a similar theme (a board), the designers did respond well when i added a comment noting that other themes that where not being explored (things being smashed into pieces)
+I didn't run a blind contest and did notice a lot of designs sharing a similar theme (a board),
 
-I didn't have a color scheme in the design breif but the designers quickly converged on red, orange and black which i was happy with because it appears prominently in app stores.
+The designers responded well when i added a comment noting that other themes that where not being explored (things being smashed into pieces)
 
-The silver contest cost 500 AUDs and i recieved an overwhelming 190 designs from 38designers
+I didn't have a color scheme in the design brief but the designers quickly converged on red, orange and black which i was happy with because it appears prominently in app stores.
 
-After the three days of working with the winners it was time to pick a winner!
-I used the handy ability send a [design survey](http://99designs.com/logo-design/contests/wordsmashing-word-puzzle-game-216866/poll/k8u6rf?utm_source=voting_app&utm_medium=web&utm_campaign=voting) around and ask for feedback on what i thought where the best designs.
+The silver contest cost 500 AUDs and i received an overwhelming 190 designs from 38designers
+
+To pick the winner I used the handy ability send a [design survey](http://99designs.com/logo-design/contests/wordsmashing-word-puzzle-game-216866/poll/k8u6rf?utm_source=voting_app&utm_medium=web&utm_campaign=voting) around and ask for feedback on what i thought where the best designs.
 
 The winner was [TastyBits](https://99designs.com/profiles/1196873/about) who turned out to live in the same city as me (Melbourne)
 
@@ -46,7 +49,13 @@ Despite the new games being much more mobile friendly than Word Smashing was whe
 
 Overall it was a very hands on process involving a lot my time reviewing and giving feedback, that process really helped me discover what i really want and
 
-I will definitely run more design contests in the future if i don't know a designer who would be good to work with one to one.
+I will definitely run more design contests in the future.
 
+Its a great way to explore different design ideas and find a designer who loves designing around your business.
+
+
+
+
+=====
 I'm not sure what effect the design plays but you can definitely notice the lack of graphic design skill in my newer games
 http://multiplicationmaster.com has recently 
