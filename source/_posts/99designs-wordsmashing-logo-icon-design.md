@@ -40,7 +40,7 @@ my mind was made up :)
 
 After the design contest Word Smashing got launched on games.com a few days after i submitted it and become a smashing success!
 
-I made other games [Multiplication Master](http://multiplicationmaster.com/), [Big Multiplayer Chess](http://bigmultiplayerchess.com/ and [ReWord Game](http://rewordgame.com) in that order.
+I made other games [Multiplication Master](http://multiplicationmaster.com/), [Big Multiplayer Chess](http://bigmultiplayerchess.com/) and [ReWord Game](http://rewordgame.com) in that order.
 
 Despite the new games being much more mobile friendly than Word Smashing was when it was launched, they have struggled to achieve the same success.
 
