@@ -1,6 +1,6 @@
 title: 99designs WordSmashing Logo/Icon Design Contest
 date: 2015-08-30 08:59:32
-tags: 
+tags:
 - Design
 - Crowd Sourcing
 - WordSmashing
@@ -15,7 +15,7 @@ At the time I had a game [Word Smashing](http://wordsmashing.com) which was in d
 Word Smashing was at the time a fun word puzzle i had made to challenge myself and i didn't think of it as a viable business.
 
 My old DIY design.. D:
-<img src="/wordsmashing-old-designs.png" width="310" height="220">
+<img src="/2015/08/30/99designs-wordsmashing-logo-icon-design/wordsmashing-old-designs.png" width="310" height="220">
 
 Running design contests can be a great way to generate lots of design ideas to choose from.
 
@@ -49,4 +49,3 @@ Overall it was a very hands on process involving a lot my time reviewing and giv
 I will definitely run more design contests in the future.
 
 Its a great way to explore different design ideas and find a designer who loves designing for your business.
-
