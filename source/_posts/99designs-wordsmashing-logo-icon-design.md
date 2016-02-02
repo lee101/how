@@ -44,7 +44,7 @@ I made other games [Multiplication Master](http://multiplicationmaster.com/), [B
 
 Despite the new games being much more mobile friendly than Word Smashing was when it was launched, they have struggled to achieve the same success.
 
-Overall it was a very hands on process involving a lot my time reviewing and giving feedback, that process really helped me discover what i really want and
+Overall it was a very hands on process involving a lot my time reviewing and giving feedback, the time spend did help me discover what i really wanted.
 
 I will definitely run more design contests in the future.
 
