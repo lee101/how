@@ -14,9 +14,6 @@ At the time I had a game [Word Smashing](http://wordsmashing.com) which was in d
 
 Word Smashing was at the time a fun word puzzle i had made to challenge myself and i didn't think of it as a viable business.
 
-
-
-
 My old DIY design.. D:
 <img src="/wordsmashing-old-designs.png" width="310" height="220">
 
@@ -53,9 +50,3 @@ I will definitely run more design contests in the future.
 
 Its a great way to explore different design ideas and find a designer who loves designing for your business.
 
-
-
-
-=====
-I'm not sure what effect the design plays but you can definitely notice the lack of graphic design skill in my newer games
-http://multiplicationmaster.com has recently 
