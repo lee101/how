@@ -49,3 +49,7 @@ Overall it was a very hands on process involving a lot my time reviewing and giv
 I will definitely run more design contests in the future.
 
 Its a great way to explore different design ideas and find a designer who loves designing for your business.
+
+Final designs:
+<img src="/2015/08/30/99designs-wordsmashing-logo-icon-design/wordsmashing-logo920x680.png" class="img-responsive" width="920" height="680">
+<img src="/2015/08/30/99designs-wordsmashing-logo-icon-design/wordsmashing-icon187.png" class="img-responsive" width="187" height="187">
