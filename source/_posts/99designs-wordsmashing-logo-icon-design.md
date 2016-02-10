@@ -1,6 +1,6 @@
 title: 99designs WordSmashing Logo/Icon Design Contest
 date: 2015-08-30 08:59:32
-tags: 
+tags:
 - Design
 - Crowd Sourcing
 - WordSmashing
@@ -15,7 +15,7 @@ At the time I had a game [Word Smashing](http://wordsmashing.com) which was in d
 Word Smashing was at the time a fun word puzzle i had made to challenge myself and i didn't think of it as a viable business.
 
 My old DIY design.. D:
-<img src="/wordsmashing-old-designs.png" width="310" height="220">
+<img src="/2015/08/30/99designs-wordsmashing-logo-icon-design/wordsmashing-old-designs.png" width="310" height="220">
 
 Running design contests can be a great way to generate lots of design ideas to choose from.
 
@@ -40,13 +40,16 @@ my mind was made up :)
 
 After the design contest Word Smashing got launched on games.com a few days after i submitted it and become a smashing success!
 
-I made other games [Multiplication Master](http://multiplicationmaster.com/), [Big Multiplayer Chess](http://bigmultiplayerchess.com/ and [ReWord Game](http://rewordgame.com) in that order.
+I made other games [Multiplication Master](http://multiplicationmaster.com/), [Big Multiplayer Chess](http://bigmultiplayerchess.com/) and [ReWord Game](http://rewordgame.com) in that order.
 
 Despite the new games being much more mobile friendly than Word Smashing was when it was launched, they have struggled to achieve the same success.
 
-Overall it was a very hands on process involving a lot my time reviewing and giving feedback, that process really helped me discover what i really want and
+Overall it was a very hands on process involving a lot my time reviewing and giving feedback, the time spend did help me discover what i really wanted.
 
 I will definitely run more design contests in the future.
 
 Its a great way to explore different design ideas and find a designer who loves designing for your business.
 
+Final designs:
+<img src="/2015/08/30/99designs-wordsmashing-logo-icon-design/wordsmashing-logo920x680.png" class="img-responsive" width="920" height="680">
+<img src="/2015/08/30/99designs-wordsmashing-logo-icon-design/wordsmashing-icon187.png" class="img-responsive" width="187" height="187">
