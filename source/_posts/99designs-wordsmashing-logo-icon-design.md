@@ -36,7 +36,7 @@ I didn't have a color scheme in the design brief but the designers quickly conve
 
 I let the designers know that i had decided on a color scheme as soon as possible which helps the designers have one less thing to worry about.
 
-## Contests are very cost effective
+## Contests are extremely cost effective
 The silver contest cost 500 AUDs and i received an overwhelming 190 designs from 38designers
 
 To pick the winner I sent a [design survey](http://99designs.com/logo-design/contests/wordsmashing-word-puzzle-game-216866/poll/k8u6rf?utm_source=voting_app&utm_medium=web&utm_campaign=voting) around and asked for feedback on what i thought where the best designs.
@@ -52,7 +52,9 @@ I made other games [Multiplication Master](http://multiplicationmaster.com/), [B
 
 Despite the new games being much more mobile friendly than Word Smashing was when it was launched, they have struggled to achieve the same success.
 
-Overall it was a very hands on process involving a lot my time reviewing and giving feedback, the time spent did help me discover what i really wanted.
+Overall it was a very hands on process involving a lot my time reviewing and giving feedback, the time i spent did help me discover what i really wanted.
+
+The cost for the amount of designer time you get is really great and i think having a professional logo for Word Smashing paid off.
 
 ## The global design community doesn't sleep
 As with many crowdsourcing models, running a design contest you'll be working with designers all over the world working 24/7.
