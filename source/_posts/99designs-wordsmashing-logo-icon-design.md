@@ -11,7 +11,7 @@ photos:
 
 I ran a [99designs](https://99designs.com) logo design contest one for my game [Word Smashing](http://wordsmashing.com) which was in desperate need of some design love.
 
-Heres what i learned:
+What i learned:
 
 ## review early and often
 The quicker your designers get review the sooner they can course correct and spent time working on what you want.
@@ -32,10 +32,11 @@ I didn't run a blind contest and did notice a lot of designs sharing a similar t
 
 The designers responded well when i added a comment noting that other themes that where not being explored (things being smashed into pieces)
 
-
 I didn't have a color scheme in the design brief but the designers quickly converged on red, orange and black which i was happy with because it appears prominently in app stores.
 
+I let the designers know that i had decided on a color scheme as soon as possible which helps the designers have one less thing to worry about.
 
+## Contests are very cost effective
 The silver contest cost 500 AUDs and i received an overwhelming 190 designs from 38designers
 
 To pick the winner I sent a [design survey](http://99designs.com/logo-design/contests/wordsmashing-word-puzzle-game-216866/poll/k8u6rf?utm_source=voting_app&utm_medium=web&utm_campaign=voting) around and asked for feedback on what i thought where the best designs.
@@ -65,7 +66,7 @@ Be clear about where your designs are going to be used e.g. does it need to stan
 
 I didn't think to ask for a completely square version without the slight drop shadow in it or an inverted color design for a darker background
 
-I received eps and pdf files which are a bit tricky to work with, make sure you *ask for editable source files* .psd (Photoshop) or .ai (Illustrator)
+I received eps and pdf files which are a bit tricky to work with, make sure you **ask for editable source files** .psd (Photoshop) or .ai (Illustrator)
 
 working with a designer afterwards 1 to 1 is easy but knowing as much as you can about what you want in advance will help to keep the project on track and avoid any unexpected expenses.
 
@@ -75,5 +76,7 @@ I will definitely run more design contests in the future.
 Its a great way to explore different design ideas and find a designer who loves designing for your business.
 
 ## Final designs:
+<a href="http://wordsmashing.com" title="Addicting Puzzle Game Word Smashing">
 <img src="/2015/08/30/99designs-wordsmashing-logo-icon-design/wordsmashing-logo920x680.png" class="img-responsive" width="920" height="680">
 <img src="/2015/08/30/99designs-wordsmashing-logo-icon-design/wordsmashing-icon187.png" class="img-responsive" width="187" height="187">
+</a>
