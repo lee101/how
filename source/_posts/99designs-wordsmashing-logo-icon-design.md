@@ -53,6 +53,9 @@ Despite the new games being much more mobile friendly than Word Smashing was whe
 
 Overall it was a very hands on process involving a lot my time reviewing and giving feedback, the time spent did help me discover what i really wanted.
 
+## The global design community doesn't sleep
+As with many crowdsourcing models, running a design contest you'll be working with designers all over the world working 24/7.
+Work can come in at any time so remember to give review when you wake up and go to sleep.
 
 ## Think through the design and where its going to be used
 i picked the design with the most detail in it but i realised afterwards it looks like a scribble at 32x32 favicon size
