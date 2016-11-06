@@ -7,7 +7,7 @@ tags:
 - Code Style
 ---
 
-##Problem
+## Problem
 
 Whats wrong with `this` and `new`?
 
@@ -56,7 +56,7 @@ I see people many popular frameworks like Backbone, Angular and Ember suggesting
 I also see people doing all sorts of things to get around `this`, like iterating over an objects functions and binding them all to it creating a lot of boilerplate (coffee script).
 
 
-##Proposed Solution: avoid `this` and avoid `new`
+## Proposed Solution: avoid `this` and avoid `new`
 
 example OOP style:
 ```javascript
@@ -124,7 +124,7 @@ talkingFunctions[1](); // "duck says: quack quack"
 
 ```
 
-###pros
+### pros
 
 No problems with `this` being lost and no boilerplate to bind `this`, doesn't need `new`
 
@@ -149,7 +149,7 @@ BroadbandMap.Collections.Networks = function () {
 
 private classes are easy too e.g. `var Duck` instead of `self.Duck`
 
-###cons
+### cons
 
 This doesn't support protected variables (ones that only subclasses can access) (arguably a plus).
 
@@ -162,7 +162,7 @@ but overriding a `function(y, x)` with a `function(x, y)` would lead to bugs.
 
 The style may look unusual to people as most frameworks suggest using `this`
 
-####ES6
+#### ES6
 
 classes use `this` so we will still see lots of bugs related to its complexity.
 Luckily for us even more complexity is added around `this` because the ES6 arrow functions will be forever bound to the `this` from the calling context.
