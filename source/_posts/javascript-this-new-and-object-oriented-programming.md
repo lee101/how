@@ -165,7 +165,7 @@ The style may look unusual to people as most frameworks suggest using `this`
 #### ES6
 
 classes use `this` so we will still see lots of bugs related to its complexity.
-Luckily for us even more complexity is added around `this` because the ES6 arrow functions will be forever bound to the `this` from the calling context.
+Luckily for us even more complexity is added around `this` because the ES6 arrow functions will be forever bound to the `this` from the context it was created in.
 This behaviour is simpler in that `this` isn't going to change on you but using the `this` from the calling context may confuse some people:
 
 ```javascript
