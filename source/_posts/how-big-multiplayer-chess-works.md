@@ -13,7 +13,7 @@ tags:
 
 Some metrics or heuristics must be used to score how good a board configuration is for a player,
 
-ones that i use in [Big Multiplayer Chess](http://BigMultiplayerChess.com) :
+ones that i use in [Big Multiplayer Chess](http://BigMultiplayerChess.com):
 * players power:  a weighted sum of pieces
 * players mobility: the number of moves a player has available to them, this prompts players to spread out and cover more ground, it makes players prefer being able to quickly move pieces around and not get closed in, generally more options=better
 * players protection: the amount of times you can take yourself, inversely weighted based on their power, e.g. its great to be able to take your pawns to protect them but if you can take your queen its not much good because someone would just sacrifice themselves to take your queen, its the little guys who need protection the most.
