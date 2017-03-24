@@ -6,7 +6,8 @@ tags:
 - Chess heuristics
 - Chess algorithms
 - Game Programming
-
+photos:
+- big-multiplayer-chess-logo128.png
 ---
 
 [Big Multiplayer Chess](http://BigMultiplayerChess.com) is a multiplayer free for all chess variant where many players on a large board can move pawns in any direction and can slide castles bishops and queens upto 8 places.
@@ -45,5 +46,9 @@ Currently the algorithm has some obvious flaws due to the lack of depth in the s
 The harder thing about big multiplayer chess is the sheer scale of things, many move choices and mobile hardware limitations make searching deeply a slow process.
 
 The algorithm could also work to better prune the various moves e.g. if considering the consequences of a move only think about possible counter moves in the 8x squares area around the moves start and finish.
+
+Please check the game out and id love to hear any feedback! :)
+
+I'd also love to extend the game in lots of other weird ways :)
 
 [random connect 4 codepen](https://codepen.io/lonekorean/project/editor/ZGpqVX/)
