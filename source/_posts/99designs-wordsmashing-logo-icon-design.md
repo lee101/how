@@ -9,7 +9,7 @@ photos:
 - wordsmashing-icon187.png
 ---
 
-I ran a [99designs](https://99designs.com) logo design contest one for my game [Word Smashing](http://wordsmashing.com) which was in desperate need of some design love.
+I ran a [99designs](https://99designs.com) logo design contest one for my game, [Word Smashing](http://wordsmashing.com) which was in desperate need of some design love.
 
 What i learned:
 
