@@ -4,7 +4,8 @@ tags:
 - python
 - performance
 - code review
-
+thumbnailImagePosition: left
+autoThumbnailImage: yes
 ---
 ```python
 def is_letter(character):
@@ -12,6 +13,7 @@ def is_letter(character):
         'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 ```
 I noticed this function would loop from a-Z so we should speed that up using a set!
+<!-- more -->
 
 First is it slow?
 

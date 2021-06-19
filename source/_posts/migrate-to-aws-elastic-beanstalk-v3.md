@@ -3,11 +3,13 @@ date: 2016-02-25 08:59:32
 tags:
 - AWS
 - elastic beanstalk
-
+thumbnailImagePosition: left
+autoThumbnailImage: yes
 ---
 v3 is FAR better than v2
 
 You installed v2 by adding some directory to your PATH, remove that and run `sudo pip install awsebcli`
+<!-- more -->
 
 Blow away your `.elasticbeanstalk/` folder and run `eb init new-name` to start from scratch.
 

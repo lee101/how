@@ -8,11 +8,14 @@ tags:
 - Game Programming
 photos:
 - big-multiplayer-chess-logo128.png
+thumbnailImagePosition: left
+autoThumbnailImage: yes
 ---
 
 [Big Multiplayer Chess](http://BigMultiplayerChess.com) is a multiplayer free for all chess variant where many players on a large board can move pawns in any direction and can slide castles, bishops and queens upto 8 places.
 
 Some metrics or heuristics must be used to score how good a board configuration is for a player,
+<!-- more -->
 
 ones that i use in [Big Multiplayer Chess](http://BigMultiplayerChess.com):
 * players power:  a weighted sum of pieces

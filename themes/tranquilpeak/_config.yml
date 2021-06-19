@@ -31,65 +31,46 @@ image_dir: assets/images
 sidebar:
     menu:
         home:
-            title: global.home
+            title: Home
             url: /
             icon: fa fa-home
-        categories:
-            title: global.categories
-            url: /all-categories
-            icon: fa fa-bookmark
-        tags:
-            title: global.tags
-            url: /all-tags
-            icon: fa fa-tags
-        archives:
-            title: global.archives
-            url: /all-archives
-            icon: fa fa-archive
-        search:
-            title: global.search
-            url: "#search"
-            icon: fa fa-search
-            # `open-algolia-search` classes are used to open algolia search modal
-            class: open-algolia-search
         about:
-            title: global.about
-            url: "#about"
+            title: About me
+            url: /#about
             icon: fa fa-question
+        resume:
+            title: Resume
+            url: http://leepenkman.appspot.com
+            icon: fa fa-file
     author_links:
-        github:
-            title: global.github
-            url: https://github.com/
-            icon: fab fa-github
-        stack_overflow:
-            title: global.stack_overflow
-            url: http://stackoverflow.com/users
-            icon: fab fa-stack-overflow
-        twitter:
-            title: global.twitter
-            url: https://twitter.com/
-            icon: fab fa-twitter
-        facebook:
-            title: global.facebook
-            url: https://facebook.com/
-            icon: fab fa-facebook
-        google_plus:
-            title: global.google_plus
-            url: https://plus.google.com/
-            icon: fab fa-google-plus
-        linked_in:
-            title: global.linkedin
-            url: https://www.linkedin.com/profile/
-            icon: fab fa-linkedin
-        mail:
-            title: global.mail
-            url: mailto
-            icon: fa fa-envelope
-    rss:
-        rss:
-            title: global.rss
-            url: /atom.xml
-            icon: fa fa-rss
+         github:
+             title: global.github
+             url: https://github.com/lee101
+             icon: fab fa-github
+         stack_overflow:
+             title: global.stack_overflow
+             url: http://stackoverflow.com/users/1323161/lee-penkman
+             icon: fab fa-stack-overflow
+         twitter:
+             title: global.twitter
+             url: http://www.twitter.com/@LeeLeePenkman
+             icon: fab fa-twitter
+         facebook:
+             title: global.facebook
+             url: https://www.facebook.com/profile.php?id=100000881925921
+             icon: fab fa-facebook
+#         google_plus:
+#             title: global.google_plus
+#             url: https://plus.google.com/u/0/+LeePenkman
+#             icon: fab fa-google-plus
+         linked_in:
+             title: linked in
+             url: http://nz.linkedin.com/in/leepenkman
+             icon: fab fa-linkedin
+         mail:
+             title: global.mail
+             url: mailto:leepenkman@gmail.com
+             icon: fa fa-envelope
 
 
 # --------------------
@@ -102,36 +83,31 @@ sidebar:
 # DON'T edit `header`, `right_link`, `url`, `icon` and `class` variable name
 # E.g to display a shortcut to open algolia search window :
 #     url: /#search
-#     icon: "fa fa-search"
+#     icon: fa fa-"fa fa-search"
 #     class: open-algolia-search
 header:
     right_link:
-        url: /#about
-        icon:
-        class:
+          url: /#search
+          icon: fa fa-search
+          class: st-search-show-outputs
 
 
 # ------
 # Author
-# ------
-
 # Your biography and your job is editable in each languages files in `languages` folder
 author:
-    email:
-    location:
+    email: leepenkman@gmail.com
+    location: Sydney
     # Your profile picture located in folder `source/_images/` (development)
-    # or in `source/assets/images/` (production)
-    # or you can use an external url
-    # Overwritten by your gravatar image if `gravatar_email` is filled
+    # or in `source/assets/images/` (production).
+    # Overwritten by your gravatar image if `gravatar_image` is enabled
+    bio: Nerd/Geek, Crypto/Software/Games/VFX/ML, Multiple hat wearer
+    job: Image Processing/ML Engineer @ Canva
     picture:
     # Your Twitter username without the @. E.g : `tranquilpeak`
-    twitter:
-    # Your personal google plus profile id, not your blog or business page id.
-    # E.g : `+JohnDoe` or `123812884128439`
-    google_plus:
-    # Your businnes google plus profile id. If not provided, personal will be used instead.
-    # E.g : `+Tranquilpeak` or `123812884128439`
-    google_plus_business:
+    twitter: LeeLeePenkman
+#    # Your google plus profile id. E.g : `+Tranquilpeak` or `123812884128439`
+#    google_plus: +LeePenkman
 
 
 # -------------
@@ -153,9 +129,13 @@ author:
 sidebar_behavior: 1
 # Hide sidebar on all article page to let article take full width to improve reading, and
 # enjoy wide images and cover images. (true: enable, false: disable)
-clear_reading: true
+clear_reading: false
 # Display thumbnail image of each post on index pages (false: disabled, true: enabled)
 thumbnail_image: true
+# Message displayed after the <!-- more --> comment
+read_more_message: Continue reading
+# Message displayed after the <!-- more --> comment or after 300 characters for post with link layout
+go_to_message: Go to the website
 # Display thumbnail image at the right of title in index pages (`right`, `left` or `bottom`)
 # Set this value to `right` if you have old posts to keep the old style on them
 # and define `thumbnailImagePosition` on a post to overwrite this setting
@@ -176,7 +156,7 @@ cover_image: cover.jpg
 # Your favicon located in folder `source/_images/` (development) or in `source/assets/images/` (production)
 favicon:
 # Display an image gallery at the end of a post which have photos variables (false: disabled, true: enabled)
-image_gallery: true
+image_gallery: false
 # Pagination behavior of archive, category and tag pages (false: pagination disabled, true: pagination enabled)
 archive_pagination: true
 category_pagination: true
@@ -186,8 +166,6 @@ tag_pagination: true
 # Comment systems
 # ---------------
 
-# Your Disqus shortname
-disqus_shortname:
 # Your Gitment information
 # Read https://github.com/imsun/gitment#get-started to setup Gitment
 gitment:
@@ -235,12 +213,15 @@ gitalk:
 # Integrated services
 # -------------------
 
-# Your Google analystics web property ID : UA-XXXXX-X
-google_analytics_id:
 # Your Baidu analystics web property ID : 9505a5af654a2478f93fd6c0ae4f687d
 baidu_analytics_id:
+
+disqus_shortname: hownz
+# Your Google analystics web property ID : UA-XXXXX-X
+google_analytics_id: UA-65838109-1
 # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
-gravatar_email:
+gravatar_email: leepenkman@gmail.com
+
 # Your Facebook user ids used to connect your blog with your facebook user accounts (Facebook Insights). Separate ids with comma. e.g : 9830047,1003342
 fb_admin_ids:
 # Your Facebook app id used to connect your blog with your facebook app account (Facebook Insights). E.g : 9841307
@@ -275,9 +256,9 @@ sharing_options:
     twitter:
         icon: "fab fa-twitter"
         url: "https://twitter.com/intent/tweet?text={{post.permalink}}"
-    google_plus:
-        icon: "fab fa-google-plus"
-        url: "https://plus.google.com/share?url={{post.permalink}}"
+#    google_plus:
+#        icon: "fab fa-google-plus"
+#        url: "https://plus.google.com/share?url={{post.permalink}}"
 # Business Social Networks
 #    linkedin:
 #        icon: "fab fa-linkedin"

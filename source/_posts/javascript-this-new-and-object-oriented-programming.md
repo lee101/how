@@ -5,7 +5,11 @@ tags:
 - Object Oriented Programming
 - Design Patterns
 - Code Style
+thumbnailImagePosition: left
+autoThumbnailImage: yes
 ---
+Whats wrong with `this` and `new`?
+<!-- excerpt -->
 
 ## Problem
 

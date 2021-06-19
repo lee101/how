@@ -3,9 +3,11 @@ date: 2016-02-24 08:59:32
 tags:
 - development workflow
 - working remotely
-
+thumbnailImagePosition: left
+autoThumbnailImage: yes
 ---
 I have been coding remotely from New Zealand for around 5 months now working 11am until 7pm matching Melbourne time, I have a Google hangout stand-up at midday and email my progress around at the end of each day, I’m also remotely included in retros, product showcases and planning meetings. It has been working pretty well.
+<!-- more -->
 
 Communicating pro-actively has been an important part of working remotely.
 I always seek review and confirmation that i'm on the right track as soon as I can, for example I might describe what i’m going to do on a task and then ask someone if it sounds good.

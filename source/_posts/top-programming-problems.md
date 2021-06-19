@@ -1,10 +1,13 @@
 title: Top Programming Problems
 date: 2016-04-21 08:44:24
 tags: software engineering, design patterns, software architecture, autoscaling, memcache, networking
+thumbnailImagePosition: left
+autoThumbnailImage: yes
 ---
 # Network usage
 
 <img src="/2016/04/21/top-programming-problems/nope-latency-seems-fine.jpeg" class="img-responsive">
+<!-- more -->
 
 ## Chunky (too much data in a request)
 

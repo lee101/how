@@ -5,13 +5,14 @@ tags:
 - App Engine
 - Log Analysing
 - Performance Optimization
-
+thumbnailImagePosition: left
+autoThumbnailImage: yes
 ---
 
 I created [webfiddle.net](http://webfiddle.net) which lets you easily add your own CSS and JavaScript to the web and share the results.
 
 Part of the product includes a proxy server which injects your code, [webfiddle.net](http://webfiddle.net) is currently going fairly viral (2M requests in the last 5 days) and costing too much!
-
+<!-- more -->
 To fix this lets do some optimization!
 
 Enable sending logs to BigQuery by going monitoring->logs->"cog"->"stream logs to bigquery"

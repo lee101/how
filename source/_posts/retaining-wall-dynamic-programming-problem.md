@@ -7,11 +7,15 @@ tags:
 - Recursion
 photos:
 - planks.jpg
+thumbnailImagePosition: left
+autoThumbnailImage: yes
 ---
 
 When we moved into our first house we inherited a half finished retaining wall.
 
 We had posts already built, 
+<!-- more -->
+
 eventually we where kindly gifted some wood planks represented as a list of lengths `wood_lengths`
 to finish the retaining wall we had to cut the planks to get planks of all the lengths we require, 
 so we had another list of lengths `required_lengths`.

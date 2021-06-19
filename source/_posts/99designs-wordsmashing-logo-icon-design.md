@@ -7,10 +7,13 @@ tags:
 - Game Development
 photos:
 - wordsmashing-icon187.png
+thumbnailImageUrl: wordsmashing-icon187.png
+thumbnailImagePosition: left
+autoThumbnailImage: yes
 ---
 
 I ran a [99designs](https://99designs.com) logo design contest one for my game, [Word Smashing](http://wordsmashing.com) which was in desperate need of some design love.
-
+<!-- more -->
 What i learned:
 
 ## review early and often
