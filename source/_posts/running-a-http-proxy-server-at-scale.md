@@ -25,7 +25,7 @@ I looked into replacing ads with my own to recover cost, i realised the proxy di
 
 I played around with some HTTP headers adding a more aggressive `Cache-Control: max-age=LARGE_NUM_SECONDS`, started using CloudFlare CDN.
 
-I noticed twitter wouldn't work through the proxy because i needed to strip the Content-Security-Policy specifying what domains could run JS and X-Frame-Options which specified that it couldn't run in an iframe, Github and StackOverflow have coded their own [iframe breakout code](http://blog.codinghorror.com/we-done-been-framed/)
+I noticed twitter wouldn't work through the proxy because i needed to strip the `Content-Security-Policy` specifying what domains could run JS and `X-Frame-Options` which specified that it couldn't run in an iframe, Github and StackOverflow have coded their own [iframe breakout code](http://blog.codinghorror.com/we-done-been-framed/)
 
 `if(window !== top) top.location.replace(window.location)`
 

@@ -4,7 +4,7 @@ My personal tech blog built using Hexo.io and deployed to heroku
 
 #### Deployment
 heroku login
-heroku git:remote -a
+
 hexo deploy
 
 ## Quick Start
