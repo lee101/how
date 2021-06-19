@@ -236,4 +236,3 @@ This means we can define reuse as the amount of times you can cut the smallest `
 Waste is how much reuse a solution doesn't get (The total length of all the offcuts that can't be reused).
 Another way of wording this is that we want to minimize waste.
 
-{% math_block %}{% endmath_block %}
