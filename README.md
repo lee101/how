@@ -7,6 +7,8 @@ heroku login
 
 hexo deploy
 
+Clear caches (CloudFlare)
+
 ## Quick Start
 
 ### Create a new post
