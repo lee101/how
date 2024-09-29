@@ -42,3 +42,13 @@ $ hexo deploy
 ```
 
 More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+
+
+tuneling ----
+
+mv ~/.cloudflared/cert.pem ~/.cloudflared/cert.pem.netwrck
+cloudflared login
+
+cloudflared tunnel create how
+cloudflared tunnel route dns how how.nz
+cloudflared tunnel --url 0.0.0.0:4000 --name how --protocol http2
