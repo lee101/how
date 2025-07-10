@@ -1,4 +1,4 @@
-title: DeepSeek-R1: Advancing Reasoning Capabilities Through Pure Reinforcement Learning
+title: DeepSeek-R1 Advancing Reasoning Capabilities Through Pure Reinforcement Learning
 date: 2024-03-20 08:59:32
 tags: [AI, Machine Learning, Deep Learning, Reinforcement Learning]
 ---
