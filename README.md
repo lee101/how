@@ -52,3 +52,12 @@ cloudflared login
 cloudflared tunnel create how
 cloudflared tunnel route dns how how.nz
 cloudflared tunnel --url 0.0.0.0:4000 --name how --protocol http2
+
+# Please support me!
+
+You can support us by purchasing [Netwrck](https://netwrck.com/) an AI agent maker and art generator.
+
+Art Generator/photo editor [AIArt-Generator.art](https://AIArt-Generator.art)
+[Helix.app.nz](https://helix.app.nz) a dashboard builder
+[Text-Generator.io](https://text-generator.io) an API server for vision language and speech models
+
