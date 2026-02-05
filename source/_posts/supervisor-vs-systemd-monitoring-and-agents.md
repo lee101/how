@@ -51,6 +51,32 @@ Pick **Supervisor** when:
 - systemd gives you `User=`, `NoNewPrivileges=`, `PrivateTmp=`, and more.
 - Supervisor can drop privileges, but it's not a security model.
 
+## Command mapping: Supervisor vs systemd
+
+If you are used to one, here are the most common commands and their equivalents in the other:
+
+1. **Start**: `supervisorctl start myapp` ↔ `systemctl start myapp`
+2. **Stop**: `supervisorctl stop myapp` ↔ `systemctl stop myapp`
+3. **Restart**: `supervisorctl restart myapp` ↔ `systemctl restart myapp`
+4. **Status**: `supervisorctl status myapp` ↔ `systemctl status myapp`
+5. **List all**: `supervisorctl status` ↔ `systemctl list-units --type=service --all`
+6. **Reload config**: `supervisorctl reread` + `supervisorctl update` ↔ `systemctl daemon-reload`
+7. **Enable on boot**: `autostart=true` in config + `supervisorctl update` ↔ `systemctl enable myapp`
+8. **Disable on boot**: `autostart=false` in config + `supervisorctl update` ↔ `systemctl disable myapp`
+9. **Tail logs**: `supervisorctl tail -f myapp` ↔ `journalctl -u myapp -f`
+10. **Clear failed state**: `supervisorctl restart myapp` ↔ `systemctl reset-failed myapp`
+11. **Check if running**: `supervisorctl status myapp` ↔ `systemctl is-active myapp`
+12. **Check if enabled**: inspect `autostart` in config ↔ `systemctl is-enabled myapp`
+13. **Send signal**: `supervisorctl signal HUP myapp` ↔ `systemctl kill -s HUP myapp`
+14. **Get PID**: `supervisorctl pid myapp` ↔ `systemctl show -p MainPID --value myapp`
+15. **View config**: `cat /etc/supervisor/conf.d/myapp.conf` ↔ `systemctl cat myapp`
+16. **Edit config**: edit file + `supervisorctl update` ↔ `systemctl edit myapp` (or edit the unit file directly)
+17. **List config files**: `ls /etc/supervisor/conf.d` ↔ `systemctl list-unit-files --type=service`
+
+Notes:
+- systemd unit names often end with `.service`, but `systemctl` lets you omit it.
+- Supervisor reads from its own config directory, while systemd relies on unit files plus `systemctl daemon-reload` when they change.
+
 ## Minimal configs you can copy
 
 **systemd unit example**
