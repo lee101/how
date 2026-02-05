@@ -76,6 +76,27 @@ If you are used to one, here are the most common commands and their equivalents 
 Notes:
 - systemd unit names often end with `.service`, but `systemctl` lets you omit it.
 - Supervisor reads from its own config directory, while systemd relies on unit files plus `systemctl daemon-reload` when they change.
+- For less-truncated output, `systemctl status myapp -l --no-pager` is the equivalent of the "show me everything" view.
+- systemd uses unit suffixes and templating (`myapp@instance`); Supervisor uses `[program:myapp]` (and optional `[group:...]` to bundle programs).
+
+## Advanced quick hits
+
+Systemd commands:
+- `systemctl list-units --type=service --all --no-legend`
+- `systemctl list-unit-files --type=service`
+- `systemctl show myapp -p ExecStart -p Restart -p MainPID`
+- `systemctl edit myapp` (drop-in override), or `systemctl edit --full myapp`
+- `systemctl list-dependencies myapp`
+- `journalctl -u myapp -b -n 200`
+
+Supervisor commands:
+- `supervisorctl status`
+- `supervisorctl tail -n 200 myapp`
+- `supervisorctl signal HUP myapp`
+- `supervisorctl pid myapp`
+- `supervisorctl reread` then `supervisorctl update`
+- `supervisorctl reload` (restart supervisord)
+- `supervisorctl add myapp` / `supervisorctl remove myapp`
 
 ## Minimal configs you can copy
 
