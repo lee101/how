@@ -10,10 +10,10 @@
     "start": "hexo server"
   },
   "hexo": {
-    "version": "5.4.0"
+    "version": "8.1.1"
   },
   "dependencies": {
-    "hexo": "^5.0.0",
+    "hexo": "^8.1.1",
     "hexo-deployer-heroku": "0.1.2",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-category": "^1.0.0",
@@ -24,6 +24,7 @@
     "hexo-renderer-marked": "^4.0.0",
     "hexo-renderer-stylus": "^2.0.0",
     "hexo-server": "^2.0.0",
+    "jquery": "^4.0.0",
     "jsdom": "16.6.0"
   }
 }

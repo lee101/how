@@ -7,9 +7,16 @@ var JSDOM = require('jsdom').JSDOM;
 var rCaptionUrl = /(\S[\S\s]*)\s+(https?:\/\/)(\S+)/i;
 var rCaption = /(\S[\S\s]*)/;
 var rTab = /<!--\s*tab (\w*)\s*-->\n([\w\W\s\S]*?)<!--\s*endtab\s*-->/g;
-// create a window with a document to use jQuery library
-var window = (new JSDOM('')).window;
-var $ = require('jquery')(window);
+
+function wrapCodeBlock(html, display) {
+  var dom = new JSDOM('<div id="hexo-tabbed-wrap">' + html + '</div>');
+  var container = dom.window.document.getElementById('hexo-tabbed-wrap');
+  if (!container || !container.firstElementChild) {
+    return html;
+  }
+  container.firstElementChild.style.display = display;
+  return container.firstElementChild.outerHTML;
+}
 
 /**
  * Tabbed code block
@@ -35,7 +42,7 @@ function tabbedCodeBlock(args, content) {
   for (var i = 0; i < matches.length; i += 2) {
     var lang = matches[i];
     var code = matches[i + 1];
-    var $code;
+    var display;
     // trim code
     code = stripIndent(code).trim();
 
@@ -53,21 +60,15 @@ function tabbedCodeBlock(args, content) {
       code = '<pre><code>' + code + '</code></pre>';
     }
 
-    // used to parse HTML code and ease DOM manipulation
-    $code = $('<div>').append(code).find('>:first-child');
-    // add tab
-    // active the first tab
-    // display the first code block
     if (i === 0) {
       caption += '<li class="tab active">' + lang + '</li>';
-      $code.css('display', 'block');
+      display = 'block';
     }
     else {
-      $code.css('display', 'none');
+      display = 'none';
       caption += '<li class="tab">' + lang + '</li>';
     }
-
-    codes += $code.prop('outerHTML');
+    codes += wrapCodeBlock(code, display);
   }
   // build caption
   caption = '<ul class="tabs">' + caption + '</ul>';
@@ -110,4 +111,3 @@ function tabbedCodeBlock(args, content) {
  *   {% endtabbed_codeblock %}
  */
 hexo.extend.tag.register('tabbed_codeblock', tabbedCodeBlock, {ends: true});
-

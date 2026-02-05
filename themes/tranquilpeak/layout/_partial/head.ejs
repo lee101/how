@@ -150,6 +150,8 @@ var feeds = [];
     <%- open_graph({
         type: 'blog',
         twitter_id: theme.author.twitter,
+        twitter_card: theme.twitter_card,
+        twitter_image: theme.twitter_image ? resolve_asset_url(theme.image_dir, theme.twitter_image) : null,
         fb_app_id: theme.fb_app_id
     }) %>
     <% if (publisher) { %>
