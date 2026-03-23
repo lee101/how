@@ -1,3 +1,8 @@
+title: Audio Processing with Librosa and the Espeak Phonemizer
+date: 2026-02-01 10:00:00
+tags: [python, audio, librosa, phonemizer, machine-learning]
+---
+
 # Audio Processing with Librosa and the Espeak Phonemizer
 
 In this tutorial, we'll explore how to use two powerful Python libraries: [Librosa](https://librosa.org/) for extracting audio features and the Espeak Phonemizer for converting text into phonemes. Much like the improvements seen in AWS Elastic Beanstalk v3, these tools can significantly simplify your work with audio and speech data.
