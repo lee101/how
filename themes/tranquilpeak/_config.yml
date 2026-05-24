@@ -71,6 +71,99 @@ sidebar:
              title: global.mail
              url: mailto:leepenkman@gmail.com
              icon: fa fa-envelope
+    projects:
+         netwrck:
+             title: Netwrck
+             url: https://netwrck.com
+             icon: fa fa-robot
+         text_generator:
+             title: Text-Generator.io
+             url: https://text-generator.io
+             icon: fa fa-cogs
+         app_nz:
+             title: App.nz
+             url: https://app.nz
+             icon: fa fa-building
+         v5games:
+             title: V5 Games
+             url: https://v5games.com
+             icon: fa fa-gamepad
+         ebank:
+             title: AI Art Generator
+             url: https://ebank.nz
+             icon: fa fa-paint-brush
+         aiart_generator:
+             title: aiart-generator.art
+             url: https://aiart-generator.art
+             icon: fa fa-palette
+         sitesim:
+             title: SiteSim
+             url: https://sitesim.net
+             icon: fa fa-globe
+         simplexgen:
+             title: SimplexGen
+             url: https://simplexgen.com
+             icon: fa fa-cube
+         webfiddle:
+             title: WebFiddle
+             url: https://webfiddle.net
+             icon: fa fa-code
+         dictatorflow:
+             title: DictatorFlow
+             url: https://dictatorflow.com
+             icon: fa fa-microphone
+         ring_nz:
+             title: Ring.nz
+             url: https://ring.nz
+             icon: fa fa-phone
+         openpaths:
+             title: OpenPaths
+             url: https://openpaths.io
+             icon: fa fa-random
+         codex_infinity:
+             title: Codex Infinity
+             url: https://codex-infinity.com
+             icon: fa fa-infinity
+         experimentflow:
+             title: ExperimentFlow
+             url: https://experimentflow.com
+             icon: fa fa-flask
+         evangeler:
+             title: Evangeler
+             url: https://evangeler.com
+             icon: fa fa-handshake
+         bitbank:
+             title: BitBank.nz
+             url: https://bitbank.nz
+             icon: fab fa-bitcoin
+         hires_nz:
+             title: Hires.nz
+             url: https://hires.nz
+             icon: fa fa-search
+         addictingwordgames:
+             title: Addicting Word Games
+             url: https://addictingwordgames.com
+             icon: fa fa-puzzle-piece
+         bigmultiplayerchess:
+             title: Big Multiplayer Chess
+             url: https://bigmultiplayerchess.com
+             icon: fa fa-chess
+         wordsmashing:
+             title: Word Smashing
+             url: https://wordsmashing.com
+             icon: fa fa-font
+         rewordgame:
+             title: reWord Game
+             url: https://rewordgame.com
+             icon: fa fa-exchange-alt
+         multiplicationmaster:
+             title: Multiplication Master
+             url: https://multiplicationmaster.com
+             icon: fa fa-calculator
+         chatgibidy:
+             title: ChatGibidy
+             url: https://chatgibidy.com
+             icon: fa fa-comment-dots
 
 
 # --------------------
