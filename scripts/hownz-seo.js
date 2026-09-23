@@ -59,8 +59,14 @@ hexo.extend.helper.register('hownz_meta', function () {
     title = `${page.title || "Untitled"} - ${SITE_NAME}`;
     desc = summary(page, 158);
     if (isPost) type = 'article';
-    const img = page.thumbnailImage || page.coverImage || ((page.content || '').match(/<img[^>]+src="([^"]+)"/) || [])[1];
-    if (img && !/^data:/.test(img)) image = /^https?:|^\//.test(img) ? abs(img) : abs(pagePath + img);
+    if (isPost) {
+      const source = page.source || page.slug || page.path;
+      const slug = path.basename(source, path.extname(source));
+      image = abs(`og/${slug}.png`);
+    } else {
+      const img = page.thumbnailImage || page.coverImage || ((page.content || '').match(/<img[^>]+src="([^"]+)"/) || [])[1];
+      if (img && !/^data:/.test(img)) image = /^https?:|^\//.test(img) ? abs(img) : abs(pagePath + img);
+    }
   } else {
     let label = 'Archives';
     if (this.is_tag()) label = page.tag ? `Posts tagged ${page.tag}` : 'Tags';
@@ -102,7 +108,7 @@ hexo.extend.helper.register('hownz_meta', function () {
     `<meta name="twitter:description" content="${esc(desc)}">`,
     `<meta name="twitter:image" content="${esc(image)}">`,
   ];
-  if (image.endsWith(DEFAULT_IMAGE)) tags.push('<meta property="og:image:width" content="1200">', '<meta property="og:image:height" content="630">');
+  if (isPost || image.endsWith(DEFAULT_IMAGE)) tags.push('<meta property="og:image:width" content="1200">', '<meta property="og:image:height" content="630">');
   if (tw) tags.push(`<meta name="twitter:creator" content="@${esc(tw)}">`);
   if (isPost) {
     tags.push(`<meta property="article:published_time" content="${page.date.toISOString()}">`);
