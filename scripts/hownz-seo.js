@@ -113,7 +113,7 @@ hexo.extend.helper.register('hownz_meta', function () {
 });
 
 const THEME_CSS = 'style-hpdbsh1pzwzzvxwrpc53c3jjgs60okmwcnshclnphy7txuo7lzjsrnlemvgn.min.css';
-const COLOR_FIX = { '#9eabb3': '#5f6b73', '#349ef3': '#0a66b7', '#969896': '#6b6d6b', '#0086b3': '#00698c', '#df5000': '#b03f00', '#63a35c': '#3a7a33', '#aaa': '#6e6e6e' };
+const COLOR_FIX = { '#9eabb3': '#5f6b73', '#349ef3': '#0a66b7', '#969896': '#6b6d6b', '#0086b3': '#00698c', '#df5000': '#b03f00', '#63a35c': '#3a7a33', '#aaa': '#6e6e6e', '#88909a': '#5f6b73' };
 let cssCache;
 function a11yCss() {
   if (cssCache) return cssCache;

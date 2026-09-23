@@ -18,11 +18,11 @@
             <%- partial('_partial/header', {sidebarBehavior: sidebarBehavior}) %>
             <%- partial('_partial/sidebar', {sidebarBehavior: sidebarBehavior}) %>
             <%- partial('_partial/post/header-cover', {post: page, sidebarBehavior: sidebarBehavior}) %>
-            <div id="main" role="main" data-behavior="<%= sidebarBehavior %>"
+            <div id="main" data-behavior="<%= sidebarBehavior %>"
                  class="<%= (page.coverImage ? 'hasCover' : '') %>
                         <%= (page.coverMeta === 'out' ? 'hasCoverMetaOut' : 'hasCoverMetaIn') %>
                         <%= (page.coverCaption ? 'hasCoverCaption' : '') %>">
-                <%- body %>
+                <div role="main"><%- body %></div>
                 <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
             </div>
             <% if (is_post() && (page.actions === undefined || page.actions)) { %>
