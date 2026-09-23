@@ -133,56 +133,23 @@ var feeds = [];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="<%= config.title %>">
-    <title><%= title %></title>
     <meta name="author" content="<%= config.author %>">
     <% if (keywords) { %>
         <meta name="keywords" content="<%= keywords %>">
     <% } %>
     <% if (theme.favicon) { %>
         <link rel="icon" href="<%= resolve_asset_url(theme.image_dir, theme.favicon) %>">
+    <% } else { %>
+        <link rel="icon" href="/favicon.ico">
     <% } %>
     <% if (feeds.length) { %>
         <% feeds.forEach(function(feed) { %>
             <link rel="alternate" type="application/<%= feed.type %>+xml" title="RSS" href="<%- url_for(feed.path) %>">
         <% }) %>
     <% } %>
-    <%- json_ld() %>
-    <%- open_graph({
-        type: 'blog',
-        twitter_id: theme.author.twitter,
-        twitter_card: theme.twitter_card,
-        twitter_image: theme.twitter_image ? resolve_asset_url(theme.image_dir, theme.twitter_image) : null,
-        fb_app_id: theme.fb_app_id
-    }) %>
-    <% if (publisher) { %>
-        <link rel="publisher" href="https://plus.google.com/<%= publisher %>"/>
-    <% } %>
-    <% if (typeof fb_admin_ids !== 'undefined') { %>
-        <% fb_admin_ids.forEach(function(fb_admin_id) { %>
-            <meta property="fb:admins" content="<%= fb_admin_id %>"/>
-        <% }) %>
-    <% } %>
-    <% if (theme.gravatar_email) { %>
-        <meta property="og:image" content="<%- gravatar(theme.gravatar_email, 640) %>"/>
-    <% } else if (theme.author.picture) { %>
-        <meta property="og:image" content="<%= resolve_asset_url(theme.image_dir, theme.author.picture) %>"/>
-    <% } %>
-    <% if (page.thumbnailImage && page.thumbnailImage.length) { %>
-        <meta property="og:image" content="<%= resolve_asset_url(page.path, page.thumbnailImage) %>"/>
-        <meta class="swiftype" name="image" data-type="enum" content="<%= resolve_asset_url(page.path, page.thumbnailImage) %>"/>
-    <% } %>
-    <% if (page.coverImage && page.coverImage.length) { %>
-        <meta property="og:image" content="<%= resolve_asset_url(page.path, page.coverImage) %>"/>
-        <meta class="swiftype" name="image" data-type="enum" content="<%= resolve_asset_url(page.path, page.coverImage) %>"/>
-    <% } %>
-    <% if (photos && photos.length) { %>
-        <% photos.forEach(function(photo) { %>
-            <meta property="og:image" content="<%= photo %>"/>
-            <meta class="swiftype" name="image" data-type="enum" content="<%= photo %>"/>
-        <% }) %>
-    <% } %>
+    <%- hownz_meta() %>
     <!--STYLES-->
-    <%- css('assets/css/style-hpdbsh1pzwzzvxwrpc53c3jjgs60okmwcnshclnphy7txuo7lzjsrnlemvgn.min.css') %>
+    <link rel="stylesheet" href="<%- hownz_css_path() %>">
     <!--STYLES END-->
     <%- partial('google-analytics') %>
     <%- partial('baidu-analytics') %>

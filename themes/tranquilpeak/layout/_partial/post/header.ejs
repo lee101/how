@@ -6,7 +6,7 @@
                 href="<%- url_for(post.link) %>"
                 target="_blank"
                 rel="noopener"
-                aria-label="<% __('global.open_link') %>: <%- url_for(post.link) %>"
+                aria-label="<%= __('global.open_link') %>: <%- url_for(post.link) %>"
             >
                 <%= post.title || '(' + __('post.no_title') + ')' %>
             </a>

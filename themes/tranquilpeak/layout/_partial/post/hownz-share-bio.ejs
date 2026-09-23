@@ -1,0 +1,38 @@
+<% var shareUrl = config.url.replace(/\/+$/, '') + '/' + page.path.replace(/index\.html$/, ''); var u = encodeURIComponent(shareUrl); var t = encodeURIComponent(page.title || ''); %>
+<div class="hownz-share" aria-label="Share this post">
+    <strong>Share:</strong>
+    <button type="button" class="hownz-native-share" hidden>Share...</button>
+    <a href="https://x.com/intent/tweet?url=<%= u %>&text=<%= t %>" target="_blank" rel="noopener">X</a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=<%= u %>" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://news.ycombinator.com/submitlink?u=<%= u %>&t=<%= t %>" target="_blank" rel="noopener">Hacker News</a>
+    <a href="https://www.reddit.com/submit?url=<%= u %>&title=<%= t %>" target="_blank" rel="noopener">Reddit</a>
+    <button type="button" class="hownz-copy" data-url="<%= shareUrl %>">Copy link</button>
+</div>
+<aside class="hownz-bio" aria-label="About the author">
+    <% if (theme.gravatar_email || theme.author.email) { %><img src="<%- gravatar(theme.gravatar_email || theme.author.email, 160) %>" width="80" height="80" alt="Lee Penkman" loading="lazy"><% } %>
+    <div>
+        <h2>Written by Lee Penkman</h2>
+        <p>Lee builds AI products under <a href="https://app.nz">App.nz</a>, from AI characters and chat to code generation and image tools. Try some of them:</p>
+        <ul>
+            <li><a href="https://netwrck.com">Netwrck - AI characters</a></li>
+            <li><a href="https://text-generator.io">Text Generator</a></li>
+            <li><a href="https://codex-infinity.com">Codex Infinity</a></li>
+            <li><a href="https://openpaths.io">OpenPaths</a></li>
+            <li><a href="https://webfiddle.net">WebFiddle</a></li>
+            <li><a href="https://ebank.nz">AI Art Generator</a></li>
+        </ul>
+    </div>
+</aside>
+<script>
+(function () {
+    var box = document.currentScript.previousElementSibling.previousElementSibling;
+    var ns = box.querySelector('.hownz-native-share'), cp = box.querySelector('.hownz-copy');
+    var data = { title: document.title, url: cp.getAttribute('data-url') };
+    if (navigator.share) { ns.hidden = false; ns.onclick = function () { navigator.share(data).catch(function () {}); }; }
+    cp.onclick = function () {
+        var done = function () { cp.textContent = 'Copied!'; setTimeout(function () { cp.textContent = 'Copy link'; }, 2000); };
+        if (navigator.clipboard) navigator.clipboard.writeText(data.url).then(done, function () { prompt('Copy link', data.url); });
+        else prompt('Copy link', data.url);
+    };
+})();
+</script>

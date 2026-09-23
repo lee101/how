@@ -5,7 +5,7 @@
     // Generate and insert table of contents in post content
     if ((/<!--(\s*)[t|T][o|O][c|C](\s*)-->/).test(postContent)) {
         if (__('post.toc')) {
-            tableOfContents = '<h1 id=\"table-of-contents\">' + __('post.toc') + '</h1>';
+            tableOfContents = '<h2 id=\"table-of-contents\">' + __('post.toc') + '</h2>';
         } else {
             tableOfContents = '<span id="table-of-contents"></span>';
         }
@@ -31,6 +31,7 @@
         <div class="main-content-wrap">
             <%- postContent %>
             <%- partial('post/gallery') %>
+            <%- partial('post/hownz-share-bio') %>
         </div>
     </div>
     <div id="post-footer" class="post-footer main-content-wrap">

@@ -5,7 +5,7 @@
 # Site
 title: How.nz AI Development Blog
 subtitle: AI Development Blog
-description: AI Development Blog
+description: Practical AI development notes by Lee Penkman - ML inference, CUDA and Triton kernels, AI agents, LLMs and shipping software products.
 author: Lee Penkman
 language: en
 timezone: Pacific/Auckland
