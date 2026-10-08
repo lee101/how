@@ -98,3 +98,12 @@ theme: tranquilpeak
 deploy:
   type: heroku
   repo: https://git.heroku.com/hownz.git
+
+# no posts use katex/mathjax tags; skip render-blocking CDN css on every page
+math:
+  katex:
+    css: false
+    options:
+      throwOnError: false
+  mathjax:
+    css: false
