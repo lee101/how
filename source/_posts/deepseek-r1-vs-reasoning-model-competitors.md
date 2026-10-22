@@ -3,7 +3,7 @@ date: 2026-03-23 11:00:00
 tags: [AI, reasoning, deepseek, openai, claude, gemini, benchmarks]
 ---
 
-When DeepSeek-R1 dropped in January 2025, it [shook the AI world](/2024/03/20/deepseek/) by matching OpenAI o1 on reasoning benchmarks using pure reinforcement learning -- and releasing the weights. Over a year later, the reasoning model landscape has shifted dramatically. Let's see where things stand in March 2026.
+When DeepSeek-R1 dropped in January 2025, it [shook the AI world](/2024/03/19/deepseek/) by matching OpenAI o1 on reasoning benchmarks using pure reinforcement learning -- and releasing the weights. Over a year later, the reasoning model landscape has shifted dramatically. Let's see where things stand in March 2026.
 
 <!-- more -->
 

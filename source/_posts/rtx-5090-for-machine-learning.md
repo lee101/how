@@ -48,7 +48,7 @@ This is where the 5090 punches way above its price class.
 - **Time-to-first-token**: 84% faster than the A100 -- the GDDR7 bandwidth advantage is real for prefill-heavy workloads.
 - **Small model throughput**: Qwen2-0.5B hits 65,000 tokens/sec with concurrent requests. Phi-3-mini-4k-instruct achieves 6,400 tok/s.
 
-For single-GPU inference serving of 7B-32B parameter models, the 5090 is arguably the best GPU available at any price point. The combination of high bandwidth GDDR7 and 5th-gen Tensor Cores gives it an edge over even datacenter cards for latency-sensitive serving. We benchmarked custom [CuteDSL fused Triton kernels](/2026/03/23/cutedsl-accelerated-ml-inference-triton-cuda-kernels/) on the 5090 and saw 24x speedups on time series inference with torch.compile -- the new architecture responds very well to kernel fusion.
+For single-GPU inference serving of 7B-32B parameter models, the 5090 is arguably the best GPU available at any price point. The combination of high bandwidth GDDR7 and 5th-gen Tensor Cores gives it an edge over even datacenter cards for latency-sensitive serving. We benchmarked custom [CuteDSL fused Triton kernels](/2026/03/22/cutedsl/) on the 5090 and saw 24x speedups on time series inference with torch.compile -- the new architecture responds very well to kernel fusion.
 
 ## The Compatibility Problem
 
