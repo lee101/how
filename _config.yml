@@ -93,6 +93,10 @@ pagination_dir: page
 ## Themes: http://hexo.io/themes/
 theme: tranquilpeak
 
+sitemap:
+  path: sitemap.xml
+  rel: true
+
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
