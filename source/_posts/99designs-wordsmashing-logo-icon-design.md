@@ -82,6 +82,6 @@ Its a great way to explore different design ideas and find a designer who loves 
 
 ## Final designs:
 <a href="http://wordsmashing.com" title="Addicting Puzzle Game Word Smashing">
-<img src="/2015/08/30/99designs-wordsmashing-logo-icon-design/wordsmashing-logo920x680.png" class="img-responsive" width="920" height="680">
-<img src="/2015/08/30/99designs-wordsmashing-logo-icon-design/wordsmashing-icon187.png" class="img-responsive" width="187" height="187">
+<img src="/2015/08/29/99designs-wordsmashing-logo-icon-design/wordsmashing-logo920x680.png" class="img-responsive" width="920" height="680">
+<img src="/2015/08/29/99designs-wordsmashing-logo-icon-design/wordsmashing-icon187.png" class="img-responsive" width="187" height="187">
 </a>

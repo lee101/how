@@ -6,7 +6,7 @@ autoThumbnailImage: yes
 ---
 # Network usage
 
-<img src="/2016/04/21/top-programming-problems/nope-latency-seems-fine.jpeg" class="img-responsive">
+<img src="/2016/04/20/top-programming-problems/nope-latency-seems-fine.jpeg" class="img-responsive">
 <!-- more -->
 
 ## Chunky (too much data in a request)
@@ -47,7 +47,7 @@ Partitioning by project could mean that if your company is only interested in on
 
 Partitioning in memcache is done by key so try and distribute the work across your keyspace or one machine in the memcache cluster could be given all the traffic for having the wrong key.
 ## Unnecessary hops
-<img src="/2016/04/21/top-programming-problems/unecessary-hops.png" class="img-responsive">
+<img src="/2016/04/20/top-programming-problems/unecessary-hops.png" class="img-responsive">
 
 In many realtime apps requests may go from client->server->db -> server -> client
 
