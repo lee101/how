@@ -4,6 +4,8 @@
         <h1>How.nz - AI Development Blog</h1>
         <p>Practical notes on ML inference, GPU kernels, AI agents and shipping software, by Lee Penkman, builder of <a href="https://app.nz">App.nz</a>, <a href="https://netwrck.com">Netwrck</a> and <a href="https://text-generator.io">Text Generator</a>.</p>
     </div>
+    <% } else { %>
+    <h1 class="hownz-pagetitle"><%= hownz_page_heading() %></h1>
     <% } %>
     <% page.posts.each(function(post) { %>
     <%

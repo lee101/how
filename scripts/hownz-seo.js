@@ -42,6 +42,21 @@ function summary(post, max) {
 }
 hexo.extend.helper.register('hownz_summary', function (post, max) { return summary(post, max || 280); });
 
+hexo.extend.helper.register('hownz_page_heading', function () {
+  const { page } = this;
+  if (this.is_tag()) return page.tag ? `Posts tagged ${page.tag}` : 'Tags';
+  if (this.is_category()) return page.category ? `${page.category} posts` : 'Categories';
+  if (this.is_month()) return `Archives ${page.year}/${page.month}`;
+  if (this.is_year()) return `Archives ${page.year}`;
+  return 'Archives';
+});
+
+const DESC_OVERRIDE = {
+  'top-programming-problems': 'A short list of the programming problems that keep coming up in real projects, from network usage to memory, with practical notes on spotting and fixing them.',
+  'javascript-this-new-and-object-oriented-programming': 'What is wrong with this snippet? A walkthrough of how this and new behave in JavaScript, and how to write object oriented code that works as expected.',
+  'hello-world': 'Welcome to How.nz, a blog about web development, machine learning and shipping software products by Lee Penkman.',
+};
+
 hexo.extend.helper.register('hownz_meta', function () {
   const { page, config, theme } = this;
   const base = config.url.replace(/\/+$/, '');
@@ -58,6 +73,8 @@ hexo.extend.helper.register('hownz_meta', function () {
   } else if (isPost || this.is_page()) {
     title = `${page.title || "Untitled"} - ${SITE_NAME}`;
     desc = summary(page, 158);
+    const slugKey = path.basename(page.source || page.slug || '', path.extname(page.source || ''));
+    if (DESC_OVERRIDE[slugKey]) desc = DESC_OVERRIDE[slugKey];
     if (isPost) type = 'article';
     if (isPost) {
       const source = page.source || page.slug || page.path;
@@ -126,7 +143,7 @@ function a11yCss() {
   let css = fs.readFileSync(path.join(hexo.theme_dir, 'source/assets/css', THEME_CSS), 'utf8');
   for (const [from, to] of Object.entries(COLOR_FIX)) css = css.replace(new RegExp(from + '(?![0-9a-fA-F])', 'gi'), to);
   css += '.post-content a,.postShorten-excerpt p a,.postShorten-content p a,#footer a{text-decoration:underline;text-underline-offset:2px}'
-    + '.hownz-intro{margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid #eef2f8}.hownz-intro h1{margin:0 0 8px;font-size:2.6rem}.hownz-intro p{margin:0;color:#4a555c}.hownz-intro a{text-decoration:underline}'
+    + '.hownz-pagetitle{margin:0 0 20px;font-size:2.4rem}.hownz-intro{margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid #eef2f8}.hownz-intro h1{margin:0 0 8px;font-size:2.6rem}.hownz-intro p{margin:0;color:#4a555c}.hownz-intro a{text-decoration:underline}'
     + '.hownz-share{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:30px 0 10px}.hownz-share strong{margin-right:4px;color:#4a555c}'
     + '.hownz-share a,.hownz-share button{display:inline-flex;align-items:center;box-sizing:border-box;min-height:36px;padding:6px 14px;border:1px solid #c6cbd1;border-radius:18px;background:#fff;color:#24292e;font:600 1.4rem/1.2 "Open Sans",sans-serif;text-decoration:none;margin:0;cursor:pointer}'
     + '.hownz-share a:hover,.hownz-share button:hover{border-color:#0a66b7;color:#0a66b7}'
