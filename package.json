@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "hexo generate",
+    "build": "TZ=UTC hexo generate",
     "clean": "hexo clean",
-    "deploy": "hexo deploy",
-    "server": "hexo server",
-    "start": "hexo server",
-    "test": "hexo generate && bun test",
-    "verify": "hexo clean && hexo generate && bun test"
+    "deploy": "TZ=UTC hexo deploy",
+    "server": "TZ=UTC hexo server",
+    "start": "TZ=UTC hexo server",
+    "test": "TZ=UTC hexo generate && bun test",
+    "verify": "hexo clean && TZ=UTC hexo generate && bun test"
   },
   "hexo": {
     "version": "8.1.2"
